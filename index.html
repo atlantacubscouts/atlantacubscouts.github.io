@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under Construction</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --card: #ffffff;
+      --text: #1f2937;
+      --accent: #b45309;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top, #fffdf7, var(--bg));
+      color: var(--text);
+      padding: 1rem;
+    }
+
+    .panel {
+      width: min(560px, 100%);
+      background: var(--card);
+      border: 2px solid #e5e7eb;
+      border-left: 10px solid var(--accent);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: #ffedd5;
+      color: #9a3412;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+  <main class="panel" role="main" aria-label="Under construction notice">
+    <span class="tag">Cub Scout Pack 586</span>
+    <h1>2026-2027 Season</h1>
+    <p>
+      We are rebooting our website for the 2026-2027 season. Check back for the updates on or after
+      the pack kick-off on Sunday, August 16th in Candler Park at 4pm!
+    </p>
+  </main>
+</body>
+</html>
