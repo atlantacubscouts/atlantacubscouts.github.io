@@ -3,19 +3,19 @@
 * Copyright 2013-2023 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-blog-post/blob/master/LICENSE)
 */
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
 
 document.addEventListener("DOMContentLoaded", function () {
     var sectionIds = ["home-content", "parent-info-content", "sign-up-content"];
-    var navLinks = Array.from(document.querySelectorAll("[data-content-target]"));
+    // Any element on the page may switch sections; only navbar links get the active state.
+    var triggers = Array.from(document.querySelectorAll("[data-content-target]"));
+    var navLinks = Array.from(document.querySelectorAll(".navbar [data-content-target]"));
     var sections = sectionIds
         .map(function (id) {
             return document.getElementById(id);
         })
         .filter(Boolean);
 
-    if (!navLinks.length || sections.length !== sectionIds.length) {
+    if (!triggers.length || sections.length !== sectionIds.length) {
         return;
     }
 
@@ -36,20 +36,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    navLinks.forEach(function (link) {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
+    function collapseNavbar() {
+        var menu = document.getElementById("navbarSupportedContent");
+        if (!menu || !menu.classList.contains("show") || !window.bootstrap) {
+            return;
+        }
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+    }
 
-            var targetId = link.getAttribute("data-content-target");
-            if (!targetId) {
+    triggers.forEach(function (trigger) {
+        trigger.addEventListener("click", function (event) {
+            var targetId = trigger.getAttribute("data-content-target");
+            if (!targetId || !sectionIds.includes(targetId)) {
                 return;
             }
 
+            event.preventDefault();
             showSection(targetId);
+            collapseNavbar();
             history.replaceState(null, "", "#" + targetId);
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
     });
 
     var initialSection = window.location.hash.replace("#", "");
     showSection(sectionIds.includes(initialSection) ? initialSection : "home-content");
+
+    // A deep link such as /#sign-up-content would otherwise leave the browser
+    // scrolled to the anchor, tucking the page heading under the sticky navbar.
+    if (sectionIds.includes(initialSection)) {
+        window.scrollTo(0, 0);
+    }
 });
