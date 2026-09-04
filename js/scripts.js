@@ -5,7 +5,7 @@
 */
 
 document.addEventListener("DOMContentLoaded", function () {
-    var sectionIds = ["home-content", "parent-info-content", "sign-up-content"];
+    var sectionIds = ["home-content", "parent-info-content", "sign-up-content", "popcorn-content"];
     // Any element on the page may switch sections; only navbar links get the active state.
     var triggers = Array.from(document.querySelectorAll("[data-content-target]"));
     var navLinks = Array.from(document.querySelectorAll(".navbar [data-content-target]"));
@@ -67,4 +67,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if (sectionIds.includes(initialSection)) {
         window.scrollTo(0, 0);
     }
+
+    // Popcorn Sale: copy the pack unit code to the clipboard.
+    var copyCodeButton = document.getElementById("popcorn-copy-code");
+    if (copyCodeButton) {
+        copyCodeButton.addEventListener("click", function () {
+            var codeEl = document.getElementById("popcorn-unit-code");
+            var code = codeEl ? codeEl.textContent.trim() : "";
+            navigator.clipboard.writeText(code).then(function () {
+                var original = copyCodeButton.textContent;
+                copyCodeButton.textContent = "Copied!";
+                setTimeout(function () {
+                    copyCodeButton.textContent = original;
+                }, 1400);
+            }).catch(function () {});
+        });
+    }
+    
 });

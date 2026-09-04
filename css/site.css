@@ -782,6 +782,316 @@ footer.site-footer .fineprint {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* ---------- Info cards (two-column text panels) ---------- */
+.info-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.6rem 1.5rem;
+  height: 100%;
+}
+
+.info-card h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.info-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-card ul {
+  margin: 0.9rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.info-card ul li + li {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Link pills ---------- */
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  color: var(--scout-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link-pill:hover {
+  background: #fff;
+  border-color: var(--scout-gold-deep);
+  color: var(--scout-gold-deep);
+  text-decoration: none;
+}
+
+/* ---------- Screenshot steps ---------- */
+.screenshot-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.screenshot-step {
+  flex: 0 1 180px;
+  text-align: center;
+}
+
+.screenshot-step img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.screenshot-step__caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--scout-navy);
+}
+
+.screenshot-step__num {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--scout-blue);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.placeholder-note {
+  margin: 1.1rem 0 0;
+  padding: 1rem 1.15rem;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  background: var(--sand);
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+/* ---------- Unit code box ---------- */
+.unit-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--sand);
+  border: 1px solid rgba(217, 155, 13, 0.4);
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.unit-code__label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.unit-code__value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--scout-navy);
+}
+
+/* ---------- Popcorn storefront dates ---------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-bar label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.filter-bar select {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.filter-count {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.date-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem 1.25rem 1.55rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.date-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--scout-gold);
+}
+
+.date-card.is-hidden {
+  display: none;
+}
+
+.date-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.date-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--scout-navy);
+  font-size: 1.05rem;
+}
+
+.date-card__tag {
+  white-space: nowrap;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--sand);
+  color: var(--scout-blue);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.date-card p {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.date-card a {
+  font-size: 0.85rem;
+}
+
+.empty-state {
+  display: none;
+  padding: 1.25rem;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+
+.empty-state.show {
+  display: block;
+}
+
+/* ---------- FAQ accordion ---------- */
+.accordion-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.accordion-panel details {
+  border-top: 1px solid var(--line);
+  padding: 0 1.35rem;
+}
+
+.accordion-panel details:first-child {
+  border-top: 0;
+}
+
+.accordion-panel summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.05rem 0;
+  font-weight: 700;
+  color: var(--scout-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.accordion-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-panel summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--scout-gold-deep);
+}
+
+.accordion-panel details[open] summary::after {
+  content: "\2212";
+}
+
+.accordion-panel .accordion-answer {
+  padding: 0 0 1.1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
 /* ---------- Small screens ---------- */
 @media (max-width: 575.98px) {
   .container {
